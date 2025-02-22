@@ -1,8 +1,9 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict, UUID4
+
+from schemas.mini_category import ICD10MiniCategoryResponse
 
 
 class InjuryBase(BaseModel):
-    icd10_code: str
     ais_code: str
     description: str
 
@@ -12,7 +13,9 @@ class InjuryCreate(InjuryBase):
 
 
 class InjuryResponse(InjuryBase):
-    id: int
-
-    class Config:
-        from_attributes = True
+    id: UUID4
+    icd10_mini_category: ICD10MiniCategoryResponse
+    model_config = ConfigDict(
+        frozen=True,
+        from_attributes=True,
+    )

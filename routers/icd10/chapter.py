@@ -19,7 +19,15 @@ def create_icd10_chapter(chapter: ICD10ChapterCreate, db: Session = Depends(get_
 
 @router.get("/chapters/", response_model=List[ICD10ChapterResponse])
 def read_icd10_chapters(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    return db.query(ICD10Chapter).offset(skip).limit(limit).all()
+    chapters = db.query(ICD10Chapter).offset(skip).limit(limit).all()
+    return [
+        {
+            "id": chapter.id,
+            "range_code": chapter.range_code,
+            "description": chapter.description,
+        }
+        for chapter in chapters
+    ]
 
 
 @router.get("/chapters/{id}", response_model=ICD10ChapterResponse)
@@ -30,7 +38,7 @@ def read_icd10_chapter(id: str, db: Session = Depends(get_db)):
     return db_chapter
 
 
-@router.put("/chapters/{id}", response_model=ICD10ChapterResponse)
+@router.patch("/chapters/{id}", response_model=ICD10ChapterResponse)
 def update_icd10_chapter(
     id: str, chapter: ICD10ChapterCreate, db: Session = Depends(get_db)
 ):

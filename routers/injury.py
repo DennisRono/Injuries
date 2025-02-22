@@ -20,7 +20,7 @@ def create_injury(injury: InjuryCreate, db: Session = Depends(get_db)):
 
 @router.get("/injuries/", response_model=List[InjuryResponse])
 def read_injuries(skip: int = 0, limit: int = 100, db: Session = Depends(get_db)):
-    return db.query(Injury).offset(skip).limit(limit).all()
+    return [injury for injury in db.query(Injury).offset(skip).limit(limit).all()]
 
 
 @router.get("/injuries/{injury_id}", response_model=InjuryResponse)

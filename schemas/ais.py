@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict, UUID4
 
 
 class AISBase(BaseModel):
@@ -12,7 +12,9 @@ class AISCreate(AISBase):
 
 
 class AISResponse(AISBase):
-    id: int
+    id: UUID4
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(
+        frozen=True,
+        from_attributes=True,
+    )

@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class ICD10Base(BaseModel):
@@ -12,6 +12,7 @@ class ICD10ChapterCreate(ICD10Base):
 
 class ICD10ChapterResponse(ICD10Base):
     id: int
-
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(
+        frozen=True,
+        from_attributes=True,
+    )

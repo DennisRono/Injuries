@@ -1,9 +1,10 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict, UUID4
 
 
 class SubCategoryBase(BaseModel):
     code: str
     description: str
+    category_id: UUID4
 
 
 class ICD10SubcategoryCreate(SubCategoryBase):
@@ -11,7 +12,8 @@ class ICD10SubcategoryCreate(SubCategoryBase):
 
 
 class ICD10SubcategoryResponse(SubCategoryBase):
-    id: int
-
-    class Config:
-        from_attributes = True
+    id: UUID4
+    model_config = ConfigDict(
+        frozen=True,
+        from_attributes=True,
+    )

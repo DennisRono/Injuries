@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class ClaimBase(BaseModel):
@@ -14,6 +14,7 @@ class ClaimCreate(ClaimBase):
 
 class ClaimResponse(ClaimBase):
     id: int
-
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(
+        frozen=True,
+        from_attributes=True,
+    )

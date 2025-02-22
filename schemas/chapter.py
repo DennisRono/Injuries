@@ -1,8 +1,8 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, UUID4, ConfigDict
 
 
 class ChapterBase(BaseModel):
-    code: str
+    range_code: str
     description: str
 
 
@@ -11,7 +11,8 @@ class ICD10ChapterCreate(ChapterBase):
 
 
 class ICD10ChapterResponse(ChapterBase):
-    id: int
-
-    class Config:
-        from_attributes = True
+    id: UUID4
+    model_config = ConfigDict(
+        frozen=True,
+        from_attributes=True,
+    )

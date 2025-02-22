@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class PatientBase(BaseModel):
@@ -13,5 +13,7 @@ class PatientCreate(PatientBase):
 class PatientResponse(PatientBase):
     id: int
 
-    class Config:
-        from_attributes = True
+    model_config = ConfigDict(
+        frozen=True,
+        from_attributes=True,
+    )
