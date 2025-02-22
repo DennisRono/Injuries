@@ -1,16 +1,16 @@
 from pydantic import BaseModel
 
 
-class ICD10Base(BaseModel):
+class SubCategoryBase(BaseModel):
     code: str
     description: str
 
 
-class ICD10ChapterCreate(ICD10Base):
+class ICD10SubcategoryCreate(SubCategoryBase):
     pass
 
 
-class ICD10ChapterResponse(ICD10Base):
+class ICD10SubcategoryResponse(SubCategoryBase):
     id: int
 
     class Config:

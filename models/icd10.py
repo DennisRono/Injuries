@@ -2,57 +2,87 @@ import uuid
 from sqlalchemy import String, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from models.base import Base, TimestampMixin
-from typing import List, Optional
+from typing import List
 
 
-class ICD10(Base, TimestampMixin):
-    __tablename__ = "icd10_codes"
+class ICD10Chapter(Base, TimestampMixin):
+    __tablename__ = "icd10_chapters"
 
-    id: Mapped[str] = mapped_column(primary_key=True, default=lambda: str(uuid.uuid4()))
+    id: Mapped[str] = mapped_column(
+        String(36), primary_key=True, default=lambda: str(uuid.uuid4())
+    )
+    range_code: Mapped[str] = mapped_column(String(10), unique=True, index=True)
+    description: Mapped[str] = mapped_column(String(255))
+    blocks: Mapped[List["ICD10Block"]] = relationship(
+        "ICD10Block", back_populates="chapter"
+    )
+
+
+class ICD10Block(Base, TimestampMixin):
+    __tablename__ = "icd10_blocks"
+
+    id: Mapped[str] = mapped_column(
+        String(36), primary_key=True, default=lambda: str(uuid.uuid4())
+    )
     code: Mapped[str] = mapped_column(String(10), unique=True, index=True)
     description: Mapped[str] = mapped_column(String(255))
+    chapter_id: Mapped[str] = mapped_column(String(36), ForeignKey("icd10_chapters.id"))
 
-
-class InjurySubcategory(Base, TimestampMixin):
-    __tablename__ = "injury_subcategories"
-
-    id: Mapped[str] = mapped_column(primary_key=True, default=lambda: str(uuid.uuid4()))
-    code: Mapped[str] = mapped_column(unique=True, index=True)
-    description: Mapped[str] = mapped_column()
-    category_id: Mapped[str] = mapped_column(ForeignKey("injury_categories.id"))
-
-    parent_category: Mapped["ICD10"] = relationship(back_populates="subcategories")
-    details: Mapped[List["InjuryDetail"]] = relationship(
-        back_populates="parent_subcategory", cascade="all, delete"
+    chapter: Mapped["ICD10Chapter"] = relationship(back_populates="blocks")
+    categories: Mapped[List["ICD10Category"]] = relationship(
+        "ICD10Category", back_populates="block"
     )
 
 
-class InjuryDetail(Base, TimestampMixin):
-    __tablename__ = "injury_details"
+class ICD10Category(Base, TimestampMixin):
+    __tablename__ = "icd10_categories"
 
-    id: Mapped[str] = mapped_column(primary_key=True, default=lambda: str(uuid.uuid4()))
-    code: Mapped[str] = mapped_column(unique=True, index=True)
-    description: Mapped[str] = mapped_column()
-    subcategory_id: Mapped[str] = mapped_column(ForeignKey("injury_subcategories.id"))
-    created_at: Mapped[str] = mapped_column()
-    updated_at: Mapped[str] = mapped_column()
-
-    parent_subcategory: Mapped["InjurySubcategory"] = relationship(
-        back_populates="details"
+    id: Mapped[str] = mapped_column(
+        String(36), primary_key=True, default=lambda: str(uuid.uuid4())
     )
-    severity: Mapped[List["InjurySeverity"]] = relationship(
-        back_populates="parent_injury", cascade="all, delete"
+    code: Mapped[str] = mapped_column(String(10), unique=True, index=True)
+    description: Mapped[str] = mapped_column(String(255))
+    block_id: Mapped[str] = mapped_column(String(36), ForeignKey("icd10_blocks.id"))
+
+    block: Mapped["ICD10Block"] = relationship(back_populates="categories")
+    subcategories: Mapped[List["ICD10Subcategory"]] = relationship(
+        "ICD10Subcategory", back_populates="category"
     )
 
 
-class InjurySeverity(Base, TimestampMixin):
-    __tablename__ = "injury_severity"
+class ICD10Subcategory(Base, TimestampMixin):
+    __tablename__ = "icd10_subcategories"
 
-    id: Mapped[str] = mapped_column(primary_key=True, default=lambda: str(uuid.uuid4()))
-    injury_id: Mapped[str] = mapped_column(ForeignKey("injury_details.id"))
-    severity_score: Mapped[int] = mapped_column(index=True)
-    created_at: Mapped[str] = mapped_column()
-    updated_at: Mapped[str] = mapped_column()
-    notes: Mapped[Optional[str]] = mapped_column()
+    id: Mapped[str] = mapped_column(
+        String(36), primary_key=True, default=lambda: str(uuid.uuid4())
+    )
+    code: Mapped[str] = mapped_column(String(10), unique=True, index=True)
+    description: Mapped[str] = mapped_column(String(255))
+    category_id: Mapped[str] = mapped_column(
+        String(36), ForeignKey("icd10_categories.id")
+    )
 
-    parent_injury: Mapped["InjuryDetail"] = relationship(back_populates="severity")
+    category: Mapped["ICD10Category"] = relationship(back_populates="subcategories")
+    mini_categories: Mapped[List["ICD10MiniCategory"]] = relationship(
+        "ICD10MiniCategory", back_populates="subcategory"
+    )
+
+
+class ICD10MiniCategory(Base, TimestampMixin):
+    __tablename__ = "icd10_mini_categories"
+
+    id: Mapped[str] = mapped_column(
+        String(36), primary_key=True, default=lambda: str(uuid.uuid4())
+    )
+    code: Mapped[str] = mapped_column(String(10), unique=True, index=True)
+    description: Mapped[str] = mapped_column(String(255))
+    subcategory_id: Mapped[str] = mapped_column(
+        String(36), ForeignKey("icd10_subcategories.id")
+    )
+
+    subcategory: Mapped["ICD10Subcategory"] = relationship(
+        back_populates="mini_categories"
+    )
+    injuries: Mapped[list["Injury"]] = relationship(
+        "Injury", back_populates="icd10_mini_category"
+    )
