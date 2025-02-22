@@ -1,0 +1,16 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.py[cod]
+*$py.class
+migrations
+
+# C extensions
+*.so
+
+# testing
+tests/
+.vercel

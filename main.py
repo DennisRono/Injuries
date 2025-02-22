@@ -1,0 +1,18 @@
+from fastapi import FastAPI
+from database import engine, Base
+from routers import icd10, ais, injury, claim, patient
+
+app = FastAPI()
+
+Base.metadata.create_all(bind=engine)
+
+app.include_router(icd10.router, prefix="/api/v1", tags=["ICD-10"])
+app.include_router(ais.router, prefix="/api/v1", tags=["AIS"])
+app.include_router(injury.router, prefix="/api/v1", tags=["Injuries"])
+app.include_router(claim.router, prefix="/api/v1", tags=["Claims"])
+app.include_router(patient.router, prefix="/api/v1", tags=["Patients"])
+
+
+@app.get("/")
+def read_root():
+    return {"message": "Welcome to the Injury Classification API"}
