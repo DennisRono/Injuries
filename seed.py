@@ -1,3 +1,4 @@
+import json
 import uuid
 from datetime import datetime, timedelta
 from sqlalchemy.orm import Session, sessionmaker
@@ -80,44 +81,30 @@ def seed_icd10_blocks():
 
 
 def seed_icd10_categories():
-    categories = [
-        {
-            "code": "S00.0",
-            "description": "Superficial injury of scalp",
-            "block_code": "S00",
-        },
-        {
-            "code": "S00.1",
-            "description": "Contusion of eyelid and periocular area",
-            "block_code": "S00",
-        },
-        {"code": "S01.0", "description": "Open wound of scalp", "block_code": "S01"},
-        {
-            "code": "S01.1",
-            "description": "Open wound of eyelid and periocular area",
-            "block_code": "S01",
-        },
-        {
-            "code": "S02.0",
-            "description": "Fracture of vault of skull",
-            "block_code": "S02",
-        },
-    ]
+    with open("data/one_decimal_icd10.json") as f:
+        categories = json.load(f)
 
-    for category in categories:
-        block = (
-            session.query(ICD10Block)
-            .filter(ICD10Block.code == category["block_code"])
-            .first()
-        )
-        new_category = ICD10Category(
-            id=generate_uuid(),
-            code=category["code"],
-            description=category["description"],
-            block_id=block.id,
-        )
-        session.add(new_category)
-    session.commit()
+        for category in categories:
+            block = (
+                session.query(ICD10Block)
+                .filter(ICD10Block.code == category["block_code"])
+                .first()
+            )
+            existing_category = (
+                session.query(ICD10Category)
+                .filter(ICD10Category.code == category["code"])
+                .first()
+            )
+            if existing_category is None and block is not None:
+                new_category = ICD10Category(
+                    id=generate_uuid(),
+                    code=category["code"],
+                    description=category["description"],
+                    block_id=block.id,
+                )
+                session.add(new_category)
+            session.add(new_category)
+        session.commit()
 
 
 def seed_icd10_subcategories():
@@ -212,7 +199,6 @@ def seed_ais_codes():
 
 
 def seed_injuries():
-    # Get some ICD-10 mini categories and AIS codes
     mini_categories = session.query(ICD10MiniCategory).limit(5).all()
     ais_codes = session.query(AIS).all()
 
@@ -230,13 +216,11 @@ def seed_injuries():
 
 
 def seed_patients():
-    for i in range(5):  # Create 5 sample patients
+    for i in range(5):
         new_patient = Patient(
             id=generate_uuid(),
             name=f"Patient {i+1}",
-            date_of_birth=str(
-                (datetime.now() - timedelta(days=365 * 30)).date()
-            ),  # Approx. 30 years old
+            date_of_birth=str((datetime.now() - timedelta(days=365 * 30)).date()),
         )
         session.add(new_patient)
     session.commit()
@@ -247,7 +231,7 @@ def seed_claims():
     injuries = session.query(Injury).all()
     statuses = ["Pending", "Approved", "Rejected", "Under Review"]
 
-    for i in range(20):  # Create 20 sample claims
+    for i in range(20):
         patient = patients[i % len(patients)]
         injury = injuries[i % len(injuries)]
         new_claim = Claim(
@@ -262,6 +246,8 @@ def seed_claims():
 
 
 if __name__ == "__main__":
+    Base.metadata.drop_all(bind=engine)
+    Base.metadata.create_all(bind=engine)
     seed_icd10_chapters()
     seed_icd10_blocks()
     seed_icd10_categories()

@@ -7,7 +7,6 @@ app = FastAPI()
 
 Base.metadata.create_all(bind=engine)
 
-# icd10
 app.include_router(chapter.router, prefix="/api/v1", tags=["ICD-10"])
 app.include_router(block.router, prefix="/api/v1", tags=["ICD-10"])
 app.include_router(category.router, prefix="/api/v1", tags=["ICD-10"])
