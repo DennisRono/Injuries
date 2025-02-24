@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from database import engine, Base
-from routers import icd10, ais, injury, claim, patient
+from routers import ais, injury, claim, patient
 from routers.icd10 import chapter, block, category, subcategory, mini_category
 
 app = FastAPI()
