@@ -1,24 +1,47 @@
+from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from database import engine, Base
-from routers import ais, injury, claim, patient
-from routers.icd10 import chapter, block, category, subcategory, mini_category
+from routers.icd10 import (
+    classification_groups,
+    injury_classification,
+    ais,
+    injury_sub_classification,
+    injury,
+)
 
 app = FastAPI()
 
 Base.metadata.create_all(bind=engine)
 
-app.include_router(chapter.router, prefix="/api/v1", tags=["ICD-10"])
-app.include_router(block.router, prefix="/api/v1", tags=["ICD-10"])
-app.include_router(category.router, prefix="/api/v1", tags=["ICD-10"])
-app.include_router(subcategory.router, prefix="/api/v1", tags=["ICD-10"])
-app.include_router(mini_category.router, prefix="/api/v1", tags=["ICD-10"])
-
-app.include_router(ais.router, prefix="/api/v1", tags=["AIS"])
-app.include_router(injury.router, prefix="/api/v1", tags=["Injuries"])
-app.include_router(claim.router, prefix="/api/v1", tags=["Claims"])
-app.include_router(patient.router, prefix="/api/v1", tags=["Patients"])
+app.include_router(
+    classification_groups.router, prefix="/api/v1", tags=["Classification Groups"]
+)
+app.include_router(
+    injury_classification.router, prefix="/api/v1", tags=["Injury Classification"]
+)
+app.include_router(
+    injury_sub_classification.router,
+    prefix="/api/v1",
+    tags=["Injury Sub Classification"],
+)
+app.include_router(
+    injury.router,
+    prefix="/api/v1",
+    tags=["Injury"],
+)
+app.include_router(ais.router, prefix="/api/v1", tags=["Abbreviated Injury Scale"])
 
 
 @app.get("/")
 def read_root():
     return {"message": "Welcome to the Injury Classification API"}
+
+
+@asynccontextmanager
+async def lifespan_wrapper(app: FastAPI):
+    with engine.begin():
+        Base.metadata.create_all(bind=engine)
+    yield
+
+
+app.router.lifespan_context = lifespan_wrapper

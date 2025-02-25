@@ -1,0 +1,21 @@
+[
+  { "range": "S00-S09", "description": "Injuries to the head" },
+  { "range": "S10-S19", "description": "Injuries to the neck" },
+  { "range": "S20-S29", "description": "Injuries to the thorax" },
+  {
+    "range": "S30-S39",
+    "description": "Injuries to the abdomen, lower back, lumbar spine, pelvis and external genitals"
+  },
+  {
+    "range": "S40-S49",
+    "description": "Injuries to the shoulder and upper arm"
+  },
+  { "range": "S50-S59", "description": "Injuries to the elbow and forearm" },
+  {
+    "range": "S60-S69",
+    "description": "Injuries to the wrist, hand and fingers"
+  },
+  { "range": "S70-S79", "description": "Injuries to the hip and thigh" },
+  { "range": "S80-S89", "description": "Injuries to the knee and lower leg" },
+  { "range": "S90-S99", "description": "Injuries to the ankle and foot" }
+]

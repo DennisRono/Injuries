@@ -2,18 +2,17 @@ from typing import Optional
 from pydantic import BaseModel, ConfigDict
 
 
-class AISBase(BaseModel):
-    ais_code: str
+class ClassificationGroupBase(BaseModel):
+    range_code: str
     name: str
     description: Optional[str] = None
-    severity: int
 
 
-class AISCreate(AISBase):
+class ClassificationGroupCreate(ClassificationGroupBase):
     pass
 
 
-class AISResponse(AISBase):
+class ClassificationGroupResponse(ClassificationGroupBase):
     model_config = ConfigDict(
         frozen=True,
         from_attributes=True,

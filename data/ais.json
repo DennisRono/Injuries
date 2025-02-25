@@ -1,0 +1,8 @@
+[
+  { "ais_code": "1", "name": "Minor", "severity": 1 },
+  { "ais_code": "2", "name": "Moderate", "severity": 2 },
+  { "ais_code": "3", "name": "Serious", "severity": 3 },
+  { "ais_code": "4", "name": "Severe", "severity": 4 },
+  { "ais_code": "5", "name": "Critical", "severity": 5 },
+  { "ais_code": "6", "name": "Maximum", "severity": 6 }
+]

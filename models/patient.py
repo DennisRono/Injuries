@@ -1,6 +1,6 @@
 import uuid
 from sqlalchemy import String
-from sqlalchemy.orm import Mapped, mapped_column, relationship
+from sqlalchemy.orm import Mapped, mapped_column
 from models.base import Base, TimestampMixin
 
 
@@ -12,4 +12,3 @@ class Patient(Base, TimestampMixin):
     )
     name: Mapped[str] = mapped_column(String(100))
     date_of_birth: Mapped[str] = mapped_column(String(10))
-    claims: Mapped[list["Claim"]] = relationship("Claim", back_populates="patient")

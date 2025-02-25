@@ -1,0 +1,65 @@
+﻿range,range_name,classsification_code,classification_name,sub_classification_code,sub_classification_name,sub_sub_classification_code,sub_sub_classification_name,mini_classification_code,mini_classification_name
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.0,Superficial injury of scalp,S00.00,Unspecified superficial injury of scalp,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.0,Superficial injury of scalp,S00.01,Abrasion of scalp,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.0,Superficial injury of scalp,S00.02,Blister (nonthermal) of scalp,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.0,Superficial injury of scalp,S00.03,Contusion of scalp,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.0,Superficial injury of scalp,S00.04,External constriction of part of scalp,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.0,Superficial injury of scalp,S00.05,Superficial foreign body of scalp,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.0,Superficial injury of scalp,S00.06,Insect bite (nonvenomous) of scalp,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.0,Superficial injury of scalp,S00.07,Other superficial bite of scalp,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.1,Contusion of eyelid and periocular area,S00.10,Contusion of unspecified eyelid and periocular area,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.1,Contusion of eyelid and periocular area,S00.11,Contusion of right eyelid and periocular area,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.1,Contusion of eyelid and periocular area,S00.12,Contusion of left eyelid and periocular area,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.20,Unspecified superficial injury of eyelid and periocular area,S00.201,Unspecified superficial injury of right eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.20,Unspecified superficial injury of eyelid and periocular area,S00.202,Unspecified superficial injury of left eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.20,Unspecified superficial injury of eyelid and periocular area,S00.209,Unspecified superficial injury of unspecified eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.21,Abrasion of eyelid and periocular area,S00.211,Abrasion of right eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.21,Abrasion of eyelid and periocular area,S00.212,Abrasion of left eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.21,Abrasion of eyelid and periocular area,S00.219,Abrasion of unspecified eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.22,Blister (nonthermal) of eyelid and periocular area,S00.221,Blister (nonthermal) of right eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.22,Blister (nonthermal) of eyelid and periocular area,S00.222,Blister (nonthermal) of left eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.22,Blister (nonthermal) of eyelid and periocular area,S00.229,Blister (nonthermal) of unspecified eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.24,External constriction of eyelid and periocular area,S00.241,External constriction of right eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.24,External constriction of eyelid and periocular area,S00.242,External constriction of left eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.24,External constriction of eyelid and periocular area,S00.249,External constriction of unspecified eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.25,Superficial foreign body of eyelid and periocular area,S00.251,Superficial foreign body of right eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.25,Superficial foreign body of eyelid and periocular area,S00.252,Superficial foreign body of left eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.25,Superficial foreign body of eyelid and periocular area,S00.259,Superficial foreign body of unspecified eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.26,Insect bite (nonvenomous) of eyelid and periocular area,S00.261,Insect bite (nonvenomous) of right eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.26,Insect bite (nonvenomous) of eyelid and periocular area,S00.262,Insect bite (nonvenomous) of left eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.26,Insect bite (nonvenomous) of eyelid and periocular area,S00.269,Insect bite (nonvenomous) of unspecified eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.27,Other superficial bite of eyelid and periocular area,S00.271,Other superficial bite of right eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.27,Other superficial bite of eyelid and periocular area,S00.272,Other superficial bite of left eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.2,Other and unspecified superficial injuries of eyelid and periocular area,S00.27,Other superficial bite of eyelid and periocular area,S00.279,Other superficial bite of unspecified eyelid and periocular area
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.3,Superficial injury of nose,S00.30,Unspecified superficial injury of nose,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.3,Superficial injury of nose,S00.31,Abrasion of nose,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.3,Superficial injury of nose,S00.32,Blister (nonthermal) of nose,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.3,Superficial injury of nose,S00.33,Contusion of nose,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.3,Superficial injury of nose,S00.34,External constriction of nose,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.3,Superficial injury of nose,S00.35,Superficial foreign body of nose,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.3,Superficial injury of nose,S00.36,Insect bite (nonvenomous) of nose,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.3,Superficial injury of nose,S00.37,Other superficial bite of nose,,
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.40,Unspecified superficial injury of ear,S00.401,Unspecified superficial injury of right ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.40,Unspecified superficial injury of ear,S00.402,Unspecified superficial injury of left ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.40,Unspecified superficial injury of ear,S00.409,Unspecified superficial injury of unspecified ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.41,Abrasion of ear,S00.411,Abrasion of right ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.41,Abrasion of ear,S00.412,Abrasion of left ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.41,Abrasion of ear,S00.419,Abrasion of unspecified ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.42,Blister (nonthermal) of ear,S00.421,Blister (nonthermal) of right ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.42,Blister (nonthermal) of ear,S00.422,Blister (nonthermal) of left ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.42,Blister (nonthermal) of ear,S00.429,Blister (nonthermal) of unspecified ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.43,Contusion of ear,S00.431,Contusion of right ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.43,Contusion of ear,S00.432,Contusion of left ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.43,Contusion of ear,S00.439,Contusion of unspecified ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.44,External constriction of ear,S00.441,External constriction of right ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.44,External constriction of ear,S00.442,External constriction of left ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.44,External constriction of ear,S00.449,External constriction of unspecified ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.45,Superficial foreign body of ear,S00.451,Superficial foreign body of right ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.45,Superficial foreign body of ear,S00.452,Superficial foreign body of left ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.45,Superficial foreign body of ear,S00.459,Superficial foreign body of unspecified ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.46,Insect bite (nonvenomous) of ear,S00.461,Insect bite (nonvenomous) of right ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.46,Insect bite (nonvenomous) of ear,S00.462,Insect bite (nonvenomous) of left ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.46,Insect bite (nonvenomous) of ear,S00.469,Insect bite (nonvenomous) of unspecified ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.47,Other superficial bite of ear,S00.471,Other superficial bite of right ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.47,Other superficial bite of ear,S00.472,Other superficial bite of left ear
+S00-S09,Injuries to the head,S00,Superficial injury of head,S00.4,Superficial injury of ear,S00.47,Other superficial bite of ear,S00.479,Other superficial bite of unspecified ear
